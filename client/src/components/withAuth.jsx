@@ -42,7 +42,7 @@ const withAuth = (WrappedComponent) => {
 
             if (loading) {
                 return (
-                    <Box sx={{ display: 'flex' }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', m: '5%' }}>
                         <CircularProgress />
                     </Box>
                 );
