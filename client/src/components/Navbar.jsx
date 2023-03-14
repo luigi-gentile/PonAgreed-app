@@ -2,6 +2,7 @@ import React from 'react';
 import { AppBar, Toolbar, Button, IconButton } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { Navigate } from 'react-router-dom';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const StyledIconButton = styled(IconButton)({
     '& img': {
@@ -25,14 +26,21 @@ function Navbar() {
                     <img alt="logo" src="https://telematics.poliba.it/images/logo2.png" />
                 </StyledIconButton>
                 <div style={{ flexGrow: 1 }} />
-                {!localStorage.getItem('token') ? 
-                <>
-                    <Button href='/login' color="inherit" variant='outfilled'>Accedi</Button>
-                    <Button href='/registration' color="inherit" variant='outfilled'>Registrati</Button>
-                </> : 
-                    <Button href='/login' color="inherit" variant='outfilled' onClick={logout}>Logout</Button>
+                {!localStorage.getItem('token') ?
+                    <>
+                        <Button href='/login' color='secondary' variant='contained' sx={{ mr: "1%" }}>Accedi</Button>
+                        <Button href='/registration' variant='contained' color='secondary'>Registrati</Button>
+                    </> :
+                    <>
+
+                        <Button href='/login' color="secondary" variant='contained' onClick={logout}>
+                            <LogoutIcon sx={{ mr: .7 }} />
+                            Logout
+                        </Button>
+                    </>
+
                 }
-                
+
             </Toolbar>
         </AppBar>
     );

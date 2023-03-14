@@ -4,17 +4,43 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Login from './pages/Login';
 import Home from './pages/Home';
 import Registration from './pages/Registration';
+import { CssBaseline } from '@mui/material';
 
 function App() {
   const theme = createTheme({
     typography: {
-      fontFamily: 'Inter'
-    }
+      fontFamily: [
+        '-apple-system',
+        'BlinkMacSystemFont',
+        '"Segoe UI"',
+        'Roboto',
+        '"Helvetica Neue"',
+        'Arial',
+        'sans-serif',
+        '"Apple Color Emoji"',
+        '"Segoe UI Emoji"',
+        '"Segoe UI Symbol"',
+      ].join(','),
+    },
+    palette: {
+      primary: {
+        main: '#2B2D3A',
+        contrastText: '#ffffff'
+      },
+      secondary: {
+        main: '#88C93B',
+        contrastText: '#ffffff'
+      },
+      background: {
+        default: '#F7F6F6'
+      },
+    },
   });
 
   return (
     <>
       <ThemeProvider theme={theme}>
+        <CssBaseline />
         <BrowserRouter>
           <Routes>
             <Route path='/' element={<Home />} />
